@@ -28,6 +28,22 @@ class TestBinaryTree(unittest.TestCase):
         self.assertEqual(binarytree.root.right.left.key, 5)
         self.assertEqual(binarytree.root.right.left.value, 'test_value_3')
 
+    def test_binary_tree_search(self):
+        binarytree = binary_tree.BinaryTree()
+        self.assertEqual(binarytree.search(5), None)
+        binarytree.insert(5, 'test_value')
+        testnode = binary_tree.Node(5, 'test_value')
+        self.assertEqual(binarytree.search(5).value, testnode.value)
+
+    def test_binary_tree_find(self):
+        binarytree = binary_tree.BinaryTree()
+        binarytree.insert(5, 'test_value')
+        binarytree.insert(6, 'test_value_2')
+        binarytree.insert(4, 'test_value_3')
+        self.assertEqual(binarytree.root.left, binarytree.search(4))
+        self.assertEqual(binarytree.root.right, binarytree.search(6))
+        self.assertEqual(binarytree.root, binarytree.search(5))
+
 
 if __name__ == '__main__':
     unittest.main()
