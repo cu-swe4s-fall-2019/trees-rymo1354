@@ -36,10 +36,10 @@ def parse_args():
 
 
 def dataset_keys(dataset, number_of_keys):
-    count = 0
+    count = 1
     keys = []
     for l in open(args.dataset):
-        if count < number_of_keys:
+        if count <= number_of_keys:
             keys.append(l)
         else:
             break
@@ -130,7 +130,7 @@ def binary_tree_fxn(keys):
 if __name__ == '__main__':
     args = parse_args()
 
-    if args.kv_pairs_number >= 10000:
+    if args.kv_pairs_number > 10000 or args.kv_pairs_number < 1:
         print('Too many key/value pairs')
         sys.exit(1)
     if not os.path.exists(args.dataset):
