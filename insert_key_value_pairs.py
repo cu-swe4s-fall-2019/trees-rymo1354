@@ -41,6 +41,7 @@ def dataset_keys(dataset, number_of_keys):
     for l in open(args.dataset):
         if count <= number_of_keys:
             keys.append(l)
+            count += 1
         else:
             break
     return keys
