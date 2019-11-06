@@ -36,6 +36,18 @@ def parse_args():
 
 
 def dataset_keys(dataset, number_of_keys):
+    """
+    Gets the keys to insert from a dataset
+    Arguments
+    _________
+    dataset: .txt file containing one key per line
+    number_of_keys: number of keys to take from the file
+
+    Returns
+    _________
+    keys: keys to add to a data structure
+    """
+
     count = 1
     keys = []
     for l in open(args.dataset):
@@ -48,6 +60,19 @@ def dataset_keys(dataset, number_of_keys):
 
 
 def hash(keys):
+    """
+    Gets insert and search times of hashing
+    Arguments
+    _________
+    keys: keys to put into data structure
+
+    Returns
+    _________
+    insert: time taken to insert keys
+    e_search: time taken to search existing keys
+    ne_search: time taken to search non-existing keys
+    """
+
     hash_table = hash_tables.ChainedHash(100000, hash_functions.h_ascii)
     # insert
     insert_start = time.time()
@@ -73,12 +98,26 @@ def hash(keys):
 
 
 def print_times(insert, esearch, nesearch):
+    # prints the insert, esearch and nesearch times
     print('Insert time: ' + str(insert))
     print('Existing key search time: ' + str(esearch))
     print('Non-existing key search time: ' + str(nesearch))
 
 
 def avl_tree(keys):
+    """
+    Gets insert and search times of avl_tree
+    Arguments
+    _________
+    keys: keys to put into data structure
+
+    Returns
+    _________
+    insert: time taken to insert keys
+    e_search: time taken to search existing keys
+    ne_search: time taken to search non-existing keys
+    """
+
     avl_tree = avl.AVL()
     # insert
     insert_start = time.time()
@@ -104,6 +143,19 @@ def avl_tree(keys):
 
 
 def binary_tree_fxn(keys):
+    """
+    Gets insert and search times of binary tree
+    Arguments
+    _________
+    keys: keys to put into data structure
+
+    Returns
+    _________
+    insert: time taken to insert keys
+    e_search: time taken to search existing keys
+    ne_search: time taken to search non-existing keys
+    """
+
     binarytree = binary_tree.BinaryTree()
     # insert
     insert_start = time.time()
